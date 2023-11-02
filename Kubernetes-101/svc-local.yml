@@ -1,0 +1,15 @@
+# 2022 version
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-local
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+    nodePort: 31111
+  selector:
+    project: catgif
+    

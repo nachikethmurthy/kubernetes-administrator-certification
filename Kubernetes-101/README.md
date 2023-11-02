@@ -1,5 +1,3 @@
-# This is a Repo on Kubernetes Administrator Session
-
 # Install Kubectl locally
 
 
@@ -49,14 +47,8 @@ kubectl exec first-pod -- ps
 kubectl exec -it first-pod -- sh
 apk add curl
 curl localhost:5000
-```
 
-# init pod demo
-```
-kubectl apply -f initpod.yml
 
-kubectl get pods --watch
 ```
-
 
 # Self Healing

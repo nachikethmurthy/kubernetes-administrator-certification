@@ -1,0 +1,28 @@
+# 2022 version
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catgif
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      project: catgif
+  minReadySeconds: 20
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        project: catgif
+    spec: 
+      containers:
+      - name: example-ctr
+        imagePullPolicy: Always
+        image: nachikethmurthy/catgif:v2
+        ports:
+          - containerPort: 5000
+
