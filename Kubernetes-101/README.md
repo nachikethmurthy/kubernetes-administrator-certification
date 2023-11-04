@@ -1,3 +1,9 @@
+# Pre-Requisites
+ - Install Docker Desktop in your local system and enable kubernetes
+ - Create a Free Trial account - GCP
+ - Install Kubectl - https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
+ 
+
 # Install Kubectl locally
 
 
