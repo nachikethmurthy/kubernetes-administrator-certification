@@ -1,4 +1,3 @@
-# 2022 version
 apiVersion: v1
 kind: Pod
 metadata:

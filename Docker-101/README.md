@@ -1,7 +1,10 @@
 # Docker Installation
 
 https://docs.docker.com/desktop/
+https://docs.docker.com/desktop/install/windows-install/
+https://docs.docker.com/desktop/install/mac-install/
 
+https://docs.docker.com/desktop/install/linux-install/
 # Commands on Hands On
 
 ```

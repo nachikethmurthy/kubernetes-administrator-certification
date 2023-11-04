@@ -6,7 +6,8 @@
 - List Nodes in K8s cluster
 
 ```
-kubectl get nodes 
+kubectl get nodes
+kubectl config use-context docker 
 ```
 - Deploy the application defined in pod.yml
 ```
@@ -17,6 +18,8 @@ kubectl describe pod first-pod # get detailed info about running pod
 kubectl apply -f svc-cloud.yml # Deploy the service 
 
 kubectl get svc # Check external IP of the service
+
+kubectl get pods --all-namespaces -o wide
 
 kubectl delete pod first-pod
 
@@ -48,6 +51,12 @@ kubectl exec -it first-pod -- sh
 apk add curl
 curl localhost:5000
 
+
+kubectl config get-contexts
+
+kubectl config delete-cluster my-cluster
+
+kubectl config delete-context my-cluster-context
 
 ```
 
