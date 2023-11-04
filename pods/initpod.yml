@@ -9,9 +9,9 @@ spec:
   - name: init-ctr
     # Pinned to 1.28 as newer versions have a sketchy nslookup command that doesn't work. Can also use a non-busybox image here
     image: busybox:1.28.4
-    command: ['sh', '-c', 'until nslookup k8sbook; do echo waiting for k8sbook service; sleep 1; done; echo Service found!']
+    command: ['sh', '-c', 'until nslookup cka-certification; do echo waiting for cka-certification service; sleep 1; done; echo Service found!']
   containers:
     - name: web-ctr
-      image: nigelpoulton/web-app:1.0
+      image: nachikethmurthy/catgif:v1
       ports:
-        - containerPort: 8080
+        - containerPort: 5000

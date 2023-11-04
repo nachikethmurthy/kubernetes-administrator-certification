@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hello-pod
+  name: hello-cat
   labels:
     zone: prod
     version: v1
 spec:
   containers:
   - name: hello-ctr
-    image: nigelpoulton/k8sbook:1.0
+    image: nachikethmurthy/catgif:v1
     ports:
-    - containerPort: 8080
+    - containerPort: 5000

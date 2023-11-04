@@ -1,15 +1,12 @@
-# Some network drivers and laptop VM implementations cause issues with Service port mapping
-# Minikube users may have to `minikube service svc-sidecar` to be able to access on `localhost:30001`
-# Other users may have to run `kubectl port-forward service/svc-sidecar 30001:80`
 apiVersion: v1
 kind: Pod
 metadata:
   name: git-sync
   labels:
-    app: sidecar
+    app: sidecar-pod
 spec:
   containers:
-  - name: ctr-web
+  - name: ctr-webpage
     image: nginx
     volumeMounts:
     - name: html
@@ -21,9 +18,9 @@ spec:
       mountPath: /tmp/git
     env:
     - name: GIT_SYNC_REPO
-      value: https://github.com/nigelpoulton/ps-sidecar.git
+      value: https://github.com/manifoldailearning/pods-sidecar.git
     - name: GIT_SYNC_BRANCH
-      value: master
+      value: main
     - name: GIT_SYNC_DEPTH
       value: "1"
     - name: GIT_SYNC_DEST
@@ -38,7 +35,7 @@ metadata:
   name: svc-sidecar
 spec:
   selector:
-    app: sidecar
+    app: sidecar-pod
   type: NodePort
   ports:
   - port: 80

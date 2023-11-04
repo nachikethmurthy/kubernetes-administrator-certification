@@ -64,6 +64,9 @@ kubectl config delete-cluster my-cluster
 
 kubectl config delete-context my-cluster-context
 
+
+kubectl config use-context docker-desktop
+
 ```
 
 # Self Healing
