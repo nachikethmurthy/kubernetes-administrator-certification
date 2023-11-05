@@ -6,6 +6,7 @@ metadata:
     zone: prod
     version: v1
     project: catgif
+    application: catv1
 spec:
   containers:
     - name: example-ctr

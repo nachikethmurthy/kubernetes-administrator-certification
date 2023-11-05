@@ -1,4 +1,3 @@
-# 2022 version
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,7 +21,7 @@ spec:
       containers:
       - name: example-ctr
         imagePullPolicy: Always
-        image: nachikethmurthy/catgif:v2
+        image: nachikethmurthy/catgif:v1
         ports:
           - containerPort: 5000
 

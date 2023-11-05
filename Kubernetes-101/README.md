@@ -2,7 +2,19 @@
  - Install Docker Desktop in your local system and enable kubernetes
  - Create a Free Trial account - GCP
  - Install Kubectl - https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
- 
+
+- Install Gcloud CLI - https://cloud.google.com/sdk/docs/install#mac
+- mac - `brew install --cask google-cloud-sdk`
+- Getting Started with creation of GKE clusters - https://k21academy.com/docker-kubernetes/create-a-gke-cluster/
+
+# Connecting Local Kubectl with Gcloud
+- Pre-requisite : Install gcloud cli from above
+- run command `gcloud auth login`
+- Optionall set the default project using the below command:
+`gcloud config set project <project-id>`
+- Connect to Kubernetes Cluster by running the command from GKE Screen
+`gcloud container clusters get-credentials cka-certification --zone us-central1-c --project civic-rhythm-404204`
+
 
 # Install Kubectl locally
 
@@ -21,7 +33,12 @@ kubectl config use-context docker
 kubectl apply -f pod.yml
 kubectl describe pod first-pod # get detailed info about running pod
 
+kubectel get pods # display all the pods in the namespace
+kubectl get pod first-pod
+
 kubectl apply -f svc-cloud.yml # Deploy the service 
+
+kubectl get services
 
 kubectl get svc # Check external IP of the service
 
@@ -69,4 +86,4 @@ kubectl config use-context docker-desktop
 
 ```
 
-# Self Healing
+
