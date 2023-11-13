@@ -87,3 +87,9 @@ kubectl config use-context docker-desktop
 ```
 
 
+# Other Basic Commands
+```
+kubectl run nginx --image=nginx   # Run container images on kubernetes pods
+
+
+```

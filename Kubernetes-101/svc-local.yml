@@ -12,4 +12,3 @@ spec:
     nodePort: 31111
   selector:
     project: catgif
-    

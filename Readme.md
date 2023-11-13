@@ -59,5 +59,3 @@ kubectl apply -f initpod.yml
 kubectl get pods --watch
 ```
 
-
-# Self Healing
