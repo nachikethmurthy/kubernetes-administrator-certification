@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo su -
 sudo apt update
 sudo apt install -y docker.io
 sudo systemctl enable docker.service
