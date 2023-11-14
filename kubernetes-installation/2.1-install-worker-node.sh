@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo su -
 sudo apt update
 sudo apt install -y docker.io
 sudo systemctl enable docker.service
@@ -12,4 +13,4 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
-echo "installation done, execute join with - kubeadm token create --print-join-command "
+echo "installation done, execute join with - kubeadm token create --print-join-command if its worker node, else proceed with other steps on Control node "
