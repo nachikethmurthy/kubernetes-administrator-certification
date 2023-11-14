@@ -22,7 +22,9 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 
 
 kubeadm token create --print-join-command
+# Reset
 
+kubeadm reset -f && rm -rf /etc/kubernetes/
 
 
 
