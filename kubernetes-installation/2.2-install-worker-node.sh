@@ -1,10 +1,10 @@
 #!/bin/bash
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
-sudo hostnamectl set-hostname "workernode-1"
+sudo hostnamectl set-hostname "workernode-2"
 exec bash
 host=$(hostname -I)
-echo "workernode-1 $host" >> /etc/hosts
+echo "workernode-2 $host" >> /etc/hosts
 
 
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
