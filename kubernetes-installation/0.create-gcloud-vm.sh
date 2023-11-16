@@ -15,13 +15,13 @@ gcloud compute firewall-rules create example-k8s-allow-external \
 --network example-k8s \
 --source-ranges 0.0.0.0/0
 
-gcloud compute instances create control-plane \
+gcloud compute instances create controller \
   --async \
-  --boot-disk-size 50GB \
+  --boot-disk-size 200GB \
   --can-ip-forward \
   --image-family ubuntu-2204-lts \
   --image-project ubuntu-os-cloud \
-  --machine-type e2-standard-2 \
+  --machine-type n1-standard-2 \
   --private-network-ip 10.240.0.11 \
   --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring \
   --subnet k8s-nodes \
@@ -29,13 +29,13 @@ gcloud compute instances create control-plane \
   --tags example-k8s,controller    
 
 for i in 0 1 2; do
-  gcloud compute instances create workernode-${i} \
+  gcloud compute instances create worker-${i} \
   --async \
-  --boot-disk-size 50GB \
+  --boot-disk-size 200GB \
   --can-ip-forward \
   --image-family ubuntu-2204-lts \
   --image-project ubuntu-os-cloud \
-  --machine-type e2-standard-2 \
+  --machine-type n1-standard-2 \
   --private-network-ip 10.240.0.2${i} \
   --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring \
   --subnet k8s-nodes \

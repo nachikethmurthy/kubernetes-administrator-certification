@@ -18,7 +18,7 @@ spec:
       mountPath: /tmp/git
     env:
     - name: GIT_SYNC_REPO
-      value: https://github.com/manifoldailearning/pods-sidecar.git
+      value: https://github.com/nachikethmurthy/pods-sidecar
     - name: GIT_SYNC_BRANCH
       value: main
     - name: GIT_SYNC_DEPTH
