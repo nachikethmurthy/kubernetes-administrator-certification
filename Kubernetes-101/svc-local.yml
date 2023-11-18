@@ -1,4 +1,3 @@
-# 2022 version
 apiVersion: v1
 kind: Service
 metadata:
@@ -6,9 +5,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 6000
+  - port: 6000 # Service IP Port
     protocol: TCP
-    targetPort: 5000
-    nodePort: 31111
+    targetPort: 5000 # Container Port  
+    nodePort: 31111 # Node Port
   selector:
     project: catgif

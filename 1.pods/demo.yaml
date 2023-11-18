@@ -1,0 +1,22 @@
+# Comments in Yaml
+
+course: Kubernetes Certification Course
+version: 1.0
+price: 299
+is_public: true
+release_date: 2023-11-01
+category:
+  - DevOps
+  - Kubernetes
+  - K8s
+course_category: [DevOps, Kubernetes, K8s]
+
+developer:
+  - name: nachikethmurthy
+  - author: k8s developer
+
+CourseDescription: |
+  This is a course on Kubernetes
+  Administration'
+  Certification
+  Course
