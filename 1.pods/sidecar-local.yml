@@ -4,6 +4,7 @@ metadata:
   name: git-sync
   labels:
     app: sidecar-pod
+    environment: prod
 spec:
   containers:
   - name: ctr-webpage
@@ -39,4 +40,4 @@ spec:
   type: NodePort
   ports:
   - port: 80
-    nodePort: 30001
+    nodePort: 30002

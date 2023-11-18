@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: example-ctr
+      image: nachikethmurthy/catgif:v1
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 5000
