@@ -10,7 +10,7 @@ metadata:
 spec:
   containers:
     - name: example-ctr
-      image: nachikethmurthy/catgif:v1
+      image: nachikethmurthy/catgif:v2
       imagePullPolicy: Always
       ports:
         - containerPort: 5000

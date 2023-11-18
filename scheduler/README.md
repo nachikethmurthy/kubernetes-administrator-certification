@@ -11,6 +11,8 @@ kubectl delete deployment catgif
 k apply -f https://raw.githubusercontent.com/nachikethmurthy/kubernetes-administrator-certification/main/scheduler/deploy.yml
 kubectl get deployment
 kubectl delete deployment catgif
+
+k label no workernode-1 node-restriction.kubernetes.io/optional=wk-node1
 ```
 
 ## Deploying with node name
