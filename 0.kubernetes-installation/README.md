@@ -62,7 +62,7 @@ curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/cu
 kubectl create -f custom-resources.yaml
 
 kubeadm token create --print-join-command```
-```
+
 
 # Worker Node
 
