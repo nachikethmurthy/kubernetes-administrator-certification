@@ -1,5 +1,5 @@
 # Control Plane
-```
+```bash
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
 host=$(hostname -I)
@@ -16,14 +16,18 @@ sudo modprobe overlay
 sudo modprobe br_netfilter
 ```
 ## sysctl params required by setup, params persist across reboots
-```cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+```bash
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-iptables  = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
-EOF```
+EOF
+
+```
 
 ## Apply sysctl params without reboot
-```sudo sysctl --system
+```bash
+sudo sysctl --system
 
 sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo mkdir /etc/apt/keyrings
@@ -58,20 +62,12 @@ curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/cu
 kubectl create -f custom-resources.yaml
 
 kubeadm token create --print-join-command```
-
-
-
-
-
-
-
-
-
-
+```
 
 # Worker Node
 
-```sudo swapoff -a
+```bash
+sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
 sudo hostnamectl set-hostname "workernode-3"
 exec bash
@@ -85,14 +81,16 @@ sudo modprobe overlay
 sudo modprobe br_netfilter
 ```
 ## sysctl params required by setup, params persist across reboots
-```cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+```bash
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-iptables  = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
 EOF
 ```
 ## Apply sysctl params without reboot
-```sudo sysctl --system
+```bash
+sudo sysctl --system
 
 sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo mkdir /etc/apt/keyrings
@@ -118,6 +116,8 @@ sudo systemctl enable kubelet.service
 
 echo "Run as sudo su - --> installation done, execute join with - kubeadm token create --print-join-command if its worker node, else proceed with other steps on Control node "
 ```
-```sudo su -
+
+```bash
+sudo su -
 kubeadm join 10.240.0.11:6443 --token dwrxs8.cn2gyei027qezibr \
 	--discovery-token-ca-cert-hash sha256:dcf4b791398e2957b43d80dab1cfaa9b01cd58e1c1ca65b0c2bca9b96d684a47```
