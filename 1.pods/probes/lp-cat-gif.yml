@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: first-pod
+  name: live-pod
   labels:
     zone: prod
     version: v1
