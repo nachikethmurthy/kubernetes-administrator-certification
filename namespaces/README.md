@@ -2,6 +2,8 @@
 kubectl get namespaces 
 kubectl describe namespace default #  kubectl describe ns default
 kubectl get svc --namespace kube-system
+kubectl get svc --all-namespaces
+kubectl get svc -A
 kubectl create ns akatsuki
 kubectl delete ns naruto-ns
 
