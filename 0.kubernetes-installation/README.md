@@ -2,10 +2,12 @@
 ```bash
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
-host=$(hostname -I)
+sudo su -
 sudo hostnamectl set-hostname "master-node"
 exec bash
+host=$(hostname -I)
 echo "$host master-node" >> /etc/hosts
+sudo su 
 
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
@@ -49,7 +51,7 @@ sudo systemctl restart kubelet.service
 sudo systemctl enable kubelet.service
 
 sudo kubeadm config images pull
-sudo kubeadm init --pod-network-cidr 192.168.0.0/16
+sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --ignore-preflight-errors=all
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -70,8 +72,7 @@ kubeadm token create --print-join-command
 ```bash
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
-sudo hostnamectl set-hostname "workernode-3"
-exec bash
+
 
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
