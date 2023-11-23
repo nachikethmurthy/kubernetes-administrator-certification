@@ -16,4 +16,5 @@ kubectl exec hello-cat -- ls
 kubectl exec hello-cat -- cat app.py
 kubectl exec -it hello-cat -- python # start python inside the pod
 kubectl get pods --show-labels
+
 ```
