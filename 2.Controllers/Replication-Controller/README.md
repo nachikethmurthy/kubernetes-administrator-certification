@@ -8,8 +8,8 @@
 ```
 create a manifest file with Kind ReplicationController & use kubectl to create the object in k8s API Server.
 
-kubectl create -f rc-ex1.yml                # create replication Controller
-kubectl apply -f rc-ex1.yml                 # udpate the replication Controller
+kubectl create -f rc-example1.yml                # create replication Controller
+kubectl apply -f rc-example2.yml                 # udpate the replication Controller
 
 kubectl get rc                              # List all replication Controllers in current active namespace
 kubectl get rc -n <namespace>               # List the replication controllers in <namespace>

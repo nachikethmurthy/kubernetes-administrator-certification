@@ -31,6 +31,6 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: lerndevops/tomcat:8.5.47
+        image: tomcat:8.5.47
         ports:
         - containerPort: 8080

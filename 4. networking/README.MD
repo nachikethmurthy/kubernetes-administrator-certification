@@ -1,4 +1,4 @@
-# Lab for Network Concepts
+# Lab for Network Concepts - DNS
 
 ```
 alias k="kubectl" # set alias
