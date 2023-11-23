@@ -23,6 +23,6 @@ kubectl label rc <rcname> key=value         # label the replication controller
 kubectl scale --replicas=x rc <rcname>      # Scale replication controller
 kubectl expose rc <rcname> --port=<external> --target-port=<internal> # expose rc as service & assign port on the cluster
 kubectl expose rc <rcname> --port=<external> --type=NodePort # expose rc as service & assign port on the Node
-kubectl rolling-update tomcatrc -f rc-ex2.yml # roll update rc
+kubectl rolling-update tomcatrc -f rc-roll-update.yml # roll update rc
 kubectl delete rc <rcname>                  # delete rc & pod under it
 ```
