@@ -17,8 +17,8 @@
 ```
 create a manifest file with Kind ReplicaSet & use kubectl to create the object in k8s API Server.
 
-kubectl create -f ds-ex1.yml --record       # create daemonset
-kubectl apply -f ds-ex1.yml  --record       # update the daemonset 
+kubectl create -f ds-ex1.yml       # create daemonset
+kubectl apply -f ds-ex1.yml         # update the daemonset 
 
 kubectl get ds                              # List all daemonsets in current active namespace
 kubectl get ds -n <namespace>               # List the daemonsets in <namespace>

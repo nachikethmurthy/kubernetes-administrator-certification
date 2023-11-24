@@ -32,8 +32,10 @@
 ```
 create a manifest file with Kind ReplicaSet & use kubectl to create the object in k8s API Server.
 
-kubectl create -f deploy-ex1.yml --record      # create deployment
-kubectl apply -f deploy-ex1.yml  --record      # update the deployment 
+kubectl create -f deploy-ex1.yml       # create deployment
+kubectl expose deploy mydeployment --port=3000 --type=NodePort
+
+kubectl apply -f deploy-ex1.yml        # update the deployment 
 
 kubectl get deploy                              # List all deployments in current active namespace
 kubectl get deploy -n <namespace>               # List the deployments in <namespace>
@@ -58,14 +60,14 @@ kubectl rollout pause deploy <deployname>        # pause a Deployment before tri
 kubectl rollout resume deploy <deployname>       
 ```
 
-# LABS
+# Demo
 
 ## Step1: Deploy Version 1
 
 ```
 ## Create a deployment with a record (for rollbacks):
 
-	kubectl create -f deploy-ex3.yml --record
+	kubectl create -f deploy-ex3.yml 
 
 ## Check the status of the rollout:
 
@@ -88,11 +90,11 @@ kubectl rollout resume deploy <deployname>
 
 	Run this curl look while the update happens:
 
-		while true; do curl http://serviceIP; done    # Run this on Node -- DO NOT ON MASTER
+		while true; do curl http://serviceIP; sleep 1; done    # Run this on Node -- DO NOT ON MASTER
 
 ## Use kubectl apply to update a deployment:
 
-	kubectl apply -f deployment-ex3.yml --record
+	kubectl apply -f deployment-ex3.yml 
 	  
 ## validate: deployment to see the updated image
 
@@ -104,9 +106,10 @@ kubectl rollout resume deploy <deployname>
 ## Step3: Now, edit the version of image back to ‘v1’ in yml file & apply
 
 ```
-   kubectl apply -f deploy-ex3.yml --record
+   kubectl apply -f deploy-ex3.yml 
    
    cotinue to watch the application output node 
+   kubectl get rs -o wide --watch
 ```
 
 
