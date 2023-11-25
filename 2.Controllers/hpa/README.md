@@ -1,4 +1,5 @@
 # Horizontal Pod autoscaler
+Documentation link - https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
 
 Install Metrics server
 ---------------------------
