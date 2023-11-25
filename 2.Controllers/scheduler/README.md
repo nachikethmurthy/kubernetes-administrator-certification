@@ -76,9 +76,9 @@ high-priority             1000000      false            48s
 
 * Create a dummy deployment for nginx and scale it to overutilize your cluster
 
-` kubectl run nginx --image=nginx` 
+` kubectl apply -f demo-deploy.yml` 
 
-` kubectl scale deploy nginx --replicas=300`
+` kubectl scale --replicas=300 deployment/demo-deployment`
 
 > The above command overutilizes our cluster and you will see a lot of pods in pending state. 
 
