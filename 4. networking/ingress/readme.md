@@ -30,6 +30,8 @@ get Ingress Controller Pod NodeIP & Ingress Controller Service NodePort
     kubectl get services -n ingress-nginx      ## Note the Ingress Servcie NodePort
 ```
 
+https://kubernetes.io/docs/concepts/services-networking/ingress/
+
 ## validate 
 
 ``` 
