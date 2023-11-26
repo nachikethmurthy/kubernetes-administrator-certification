@@ -11,4 +11,4 @@ spec:
     image: nachikethmurthy/catgif:v1
     ports:
     - containerPort: 5000
-  nodeName: workernode-2
+  nodeName: budget-worker-2

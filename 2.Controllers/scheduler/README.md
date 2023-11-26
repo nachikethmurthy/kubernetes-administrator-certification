@@ -5,6 +5,7 @@ k get no --show-labels # display default labels associated with the nodes
 k label no workernode-1 favorite=wk-node
 k get no --show-labels
 k describe node workernode-1
+kubectl label node budget-worker-0 favorite-
 k apply -f selector-node-pod.yml
 k get po -o wide
 kubectl delete deployment catgif
