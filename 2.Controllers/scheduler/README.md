@@ -77,7 +77,7 @@ high-priority             1000000      false            48s
 
 * Create a dummy deployment for nginx and scale it to overutilize your cluster
 
-` kubectl apply -f demo-deploy.yml` 
+` kubectl apply -f priority-deploy.yml` 
 
 ` kubectl scale --replicas=300 deployment/demo-deployment`
 
