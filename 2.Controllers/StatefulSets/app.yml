@@ -9,10 +9,11 @@ parameters:
   type: pd-ssd
 ---
 # Headless Service for StatefulSet Pod DNS names
+# Headless Service for StatefulSet Pod DNS names
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-serv
+  name: my-service-demo
   labels:
     app: web
 spec:
@@ -26,13 +27,13 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: my-serv
+  name: my-service-demo
 spec:
-  replicas: 3 
+  replicas: 2
   selector:
     matchLabels:
       app: web
-  serviceName: "my-serv"
+  serviceName: "my-service-demo"
   template:
     metadata:
       labels:

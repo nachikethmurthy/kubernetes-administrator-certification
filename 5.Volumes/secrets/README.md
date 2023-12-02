@@ -17,7 +17,7 @@
 # Labs
 
 ```
-kubectl create secret generic creds --from-literal user=nachiketh --from-literal pwd=pass123
+kubectl create secret generic creds --from-literal user=nachiketh --from-literal pwd=pass123 --dry-run=client -o yaml > demo-secret.yaml
 
 kubectl get secret creds -o yaml
 
