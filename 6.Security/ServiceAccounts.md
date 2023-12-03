@@ -9,7 +9,8 @@
 ### Create ServiceAccount Scoped to any Namespace 
 
 ```
-kubectl create sa testsa
+kubectl create sa testsa --dry-run=client -o yaml
+
 kubectl get sa testsa
 ```
 
@@ -107,8 +108,7 @@ bash-5.1# curl https://kubernetes.default.svc -k -H "Authorization: Bearer eyJhb
 ``` 
 
 ```
-curl https://kubernetes.default.svc/api/v1/namespaces/default/pods -k -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImQwMjhkNmVhMGVhNG..."
-
+curl https://kubernetes.default.svc/api/v1/namespaces/default/pods -k -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtNUHgtZG1rQVBMc2Z6VXNQWjlsRmpPR3NZdS0tZVRQLXdrNVFPMW1ZTWMifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzMzMTE1NDI3LCJpYXQiOjE3MDE1Nzk0MjcsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0IiwicG9kIjp7Im5hbWUiOiJzYS10ZXN0LXBvZCIsInVpZCI6ImQ1N2FjZTQ4LTI1MmQtNDc1OC04NmU3LTQ3MTA3OTMxYmIwZCJ9LCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoidGVzdHNhIiwidWlkIjoiYzdhMGYwZDUtMjMxMC00NjFkLThkNWUtZjBhZTk1YmEwMDBkIn0sIndhcm5hZnRlciI6MTcwMTU4MzAzNH0sIm5iZiI6MTcwMTU3OTQyNywic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6dGVzdHNhIn0.cJE0X4AL-qBOR0irz7NultSGOjUC4ZcoGlCq9SlbR9O7v8MYzV0xi-Xm0auuhPsOK4uY2rmSo64gxsGqRtRp3YU9pB1DG2IthwsVinONIeKEOUUsjwpi_V4iBwnCLkuuoTsaV4o9a8t3iY5As3pSVkPI6LzoiKRZkSS_X4z3eNPZa7In36UO6QyKbjc-8ZzlS_gpBYdRHDmyR9cGLtvm7rB2JdwrLzRuU2WDxwAwMvDs7lSq-OWikGuEyLlilOYurhweUW-7bvg0yX9w_jK4qEAS-eMftItdafMQ6nB6CROlbst-p_1pFDu8wsFc7-6R2LQEO3cSMMG92Mp7KM-_Jw"
 {
   "kind": "Status",
   "apiVersion": "v1",

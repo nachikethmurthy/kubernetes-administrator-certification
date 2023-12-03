@@ -24,8 +24,8 @@ sudo cat prod-user.csr | base64 | tr -d '\n'
 kubectl get csr
 
 kubectl certificate approve user1
-kubectl get nodes as prod-user
-kubectl get csr prod-user -o jsonpath="{.status.certificate}" | base64 --decode > prod-user.crt      ## this generates a crt file
+kubectl get nodes --as prod-user
+kubectl get csr user1 -o jsonpath="{.status.certificate}" | base64 --decode > prod-user.crt      ## this generates a crt file
 kubectl apply -f CertificateSigningRequest.yml
 kubectl get no --as prod-user  # Authorization not provided
 
@@ -64,6 +64,12 @@ kubectl run pod1 --image nginx --as prod-user
 kubectl config get-contexts
 cd
 vi .kube/config
+
+cat prod-user.crt | base64 -w0 
+
+
+kubectl config use-context docker-desktop
+
 
 # Create a new server
   gcloud compute instances create budget-worker-4 \
