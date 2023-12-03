@@ -21,7 +21,7 @@ gcloud compute instances create budget-controller \
   --can-ip-forward \
   --image-family ubuntu-2204-lts \
   --image-project ubuntu-os-cloud \
-  --machine-type e2-small \
+  --machine-type e2-medium \
   --private-network-ip 10.240.0.31 \
   --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring \
   --subnet k8s-nodes \
@@ -35,7 +35,7 @@ for i in 0 1 2; do
   --can-ip-forward \
   --image-family ubuntu-2204-lts \
   --image-project ubuntu-os-cloud \
-  --machine-type e2-small \
+  --machine-type e2-medium \
   --private-network-ip 10.240.0.4${i} \
   --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring \
   --subnet k8s-nodes \
