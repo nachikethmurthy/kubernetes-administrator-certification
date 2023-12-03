@@ -14,20 +14,20 @@ sudo ls /etc/kubernetes/pki
  ```
 
  ```
-mkdir -p /home/dev-user/certs
-cd /home/dev-user/certs
-sudo openssl genrsa -out dev-user.key 2048
+mkdir -p /home/prod-user/certs
+cd /home/prod-user/certs
+sudo openssl genrsa -out prod-user.key 2048
  
-sudo openssl req -new -key dev-user.key -out dev-user.csr -subj "/CN=dev-user/O=devops"
+sudo openssl req -new -key prod-user.key -out prod-user.csr -subj "/CN=prod-user/O=devops"
 ls -l
-sudo cat dev-user.csr | base64 | tr -d '\n'
+sudo cat prod-user.csr | base64 | tr -d '\n'
 kubectl get csr
 
 kubectl certificate approve user1
 kubectl get nodes as prod-user
-kubectl get csr dev-user -o jsonpath="{.status.certificate}" | base64 --decode > dev-user.crt      ## this generates a crt file
+kubectl get csr prod-user -o jsonpath="{.status.certificate}" | base64 --decode > prod-user.crt      ## this generates a crt file
 kubectl apply -f CertificateSigningRequest.yml
-kubectl get no --as dev-user  # Authorization not provided
+kubectl get no --as prod-user  # Authorization not provided
 
 # Authorization
 kubectl create role prodadmin --verb=get,list,watch,create --resource=pods,services --namespace default --dry-run=client -o yaml
@@ -37,13 +37,13 @@ kubectl apply -f role.yml
 kubectl get roles
 kubectl describe role prodadmin   
 
-kubectl create rolebinding prodadminbinding --user=dev-user --role=prodadmin --namespace default --dry-run=client -o yaml
+kubectl create rolebinding prodadminbinding --user=prod-user --role=prodadmin --namespace default --dry-run=client -o yaml
 
 kubectl apply rolebinding.yml
 
-kubectl get pods --as dev-user
-kubectl get deploy  --as dev-user
-kubectl -n kube-system get pods --as dev-user
+kubectl get pods --as prod-user
+kubectl get deploy  --as prod-user
+kubectl -n kube-system get pods --as prod-user
 kubectl delete role prodadmin
 kubectl delete rolebinding prodadminbinding
 
@@ -52,14 +52,14 @@ kubectl describe clusterrole admin
 
 kubectl describe clusterrole view
 
-kubectl create clusterrolebinding abcd --user=dev-user --clusterrole view --dry-run=client -o yaml
+kubectl create clusterrolebinding abcd --user=prod-user --clusterrole view --dry-run=client -o yaml
 
 kubectl apply -f cluster-role-binding.yml
 
-kubectl get all --all-namespaces --as dev-user
-kubectl run pod1 --image nginx -n kube-system --as dev-user
+kubectl get all --all-namespaces --as prod-user
+kubectl run pod1 --image nginx -n kube-system --as prod-user
 
-kubectl run pod1 --image nginx --as dev-user
+kubectl run pod1 --image nginx --as prod-user
 
 kubectl config get-contexts
 cd
