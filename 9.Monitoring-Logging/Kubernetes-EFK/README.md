@@ -18,6 +18,10 @@ kubectl apply -f kibana-svc.yml # ensure that firewall rule allows inbound conne
 <node-external-ip>:30000
 
 
-
-
 ```
+
+# Other components of elastic stack
+
+- Elastic Metrics
+- APM
+- Uptime
