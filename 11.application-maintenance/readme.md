@@ -14,3 +14,8 @@ kubectl drain budget-worker-2
 kubectl uncordon budget-worker-2
 
 ```
+
+
+https://killercoda.com
+
+https://github.com/lerndevops/kubernetes/tree/master

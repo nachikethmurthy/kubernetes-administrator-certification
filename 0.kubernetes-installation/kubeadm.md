@@ -1,0 +1,5 @@
+# Labs
+
+```
+kubeadm upgrade plan
+```
