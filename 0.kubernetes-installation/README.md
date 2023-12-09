@@ -6,7 +6,7 @@ sudo su -
 sudo hostnamectl set-hostname "master-node"
 exec bash
 host=$(hostname -I)
-echo "$host master-node" >> /etc/hosts
+echo "$host budget-controller" >> /etc/hosts
 sudo su 
 
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -65,7 +65,7 @@ kubectl create -f custom-resources.yaml
 
 kubeadm token create --print-join-command  
 ```
-
+export KUBECONFIG=~nachiketh/.kube/config
 
 # Worker Node
 
@@ -120,6 +120,4 @@ echo "Run as sudo su - --> installation done, execute join with - kubeadm token 
 ```
 
 ```bash
-sudo su -
-kubeadm join 10.240.0.11:6443 --token dwrxs8.cn2gyei027qezibr \
-	--discovery-token-ca-cert-hash sha256:dcf4b791398e2957b43d80dab1cfaa9b01cd58e1c1ca65b0c2bca9b96d684a47```
+sudo kubeadm join 10.240.0.31:6443 --token 9nl6oa.nae0clxtorgkrai5 --discovery-token-ca-cert-hash sha256:465c03d78ef457c488f6be4e4e1b89a3e9b3910383f7138880627ac9c04be687 ```
