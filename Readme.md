@@ -59,7 +59,7 @@ kubectl apply -f initpod.yml
 kubectl get pods --watch
 ```
 
-# Short Names
+# Short Names - updated
 
 | Short name           | Full name                    |
 | -------------------- | ---------------------------- |
